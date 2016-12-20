@@ -1,0 +1,75 @@
+<div class="main-app-container">
+  <div>
+    <ad-unit></ad-unit>
+  </div>
+
+  <!-- gallery -->
+  <div class="layout-row flex">
+
+    <div class="flex-rem flex main-tabs-wrapper">
+      <div class="main-tabs-container">
+
+        <div class="tabs-tab-container layout-row flex">
+          <div class="tabs-tab active">Music</div>
+          <div class="tabs-tab">Discuss</div>
+          <div class="tabs-tab">Engage</div>
+        </div>
+        <div class="flex flex-rem tabs-content-container layout-column">
+
+          <music-player class="component"></music-player>
+
+        </div>
+        <div class="tabs-tab-container layout-row flex">
+          <div class="tabs-tab">Shows</div>
+          <div class="tabs-tab">Request</div>
+          <div class="tabs-tab">Info</div>
+        </div>
+
+
+      </div>
+
+    </div>
+
+    <div class="flex-rem flex layout-column gallery-home-container">
+      <gallery class="component"></gallery>
+    </div>
+
+  </div>
+
+
+
+
+  <div>
+    <trending-now class="component"></trending-now>
+  </div>
+
+  <div class="layout-row flex">
+
+    <div class="flex flex-rem layout-column margin-r-20">
+      <div>
+        <shows class="component"></shows>
+      </div>
+      <div>
+        <charts class="component"></charts>
+      </div>
+      <div>
+        <news class="component"></news>
+      </div>
+      <div>
+        <shop-now class="component"></shop-now>
+      </div>
+      <div>
+        <classifieds class="component"></classifieds>
+      </div>
+      <div>
+        <rj-profiles class="component"></rj-profiles>
+      </div>
+    </div>
+    <div class="flex layout-column main-app-container--right-ads-container pad-box-10" style="min-width:400px;">
+      <ad-unit class="margin-td-10 component" type="'large'"></ad-unit>
+      <ad-unit type="'large'" class="margin-td-10 component"></ad-unit>
+    </div>
+
+  </div>
+
+</div>

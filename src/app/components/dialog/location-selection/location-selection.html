@@ -1,0 +1,31 @@
+<div class="pad-box-20 location-selection-dialog flex flex-rem layout-align-center layout-column">
+  <div class="styled-select slate">
+    <select ng-options="city as city.city_name for city in $ctrl.cities track by city.city_id" ng-model="$ctrl.selectedCity" ng-change="$ctrl.updateCity()">
+      <option selected="" disabled="" value="">Select City</option>
+    </select>
+  </div>
+  <div class="service-select flex layout-row" ng-if="$ctrl.citySelected && $ctrl.hasVenues" style="padding:20px;">
+
+      <div ng-click="$ctrl.closeModal()" class="service-option icon-button">
+        <img style="height:48px; width: 48px;">
+        <p>Live</p>
+      </div>
+
+      <div class="service-option icon-button">
+        <img style="height:48px; width: 48px;">
+        <p>Events</p>
+      </div>
+
+      <div class="service-option icon-button">
+        <img style="height:48px; width: 48px;">
+        <p>Android</p>
+      </div>
+
+      <div class="service-option icon-button">
+        <img style="height:48px; width: 48px;">
+        <p>iOS</p>
+      </div>
+
+
+  </div>
+</div>

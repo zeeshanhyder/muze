@@ -1,0 +1,40 @@
+
+export LANG=en_US.UTF-8
+
+mitmproxy -b 10.0.1.103 --ignore '^(?!hummfm\.com)'
+
+
+URL
+
+http://muze.hummfm.com/MuzeHumm/categoryvenue/list_venue
+
+Request Params (GET)
+
+latitude:        12.9326376
+count:           0
+longitude:       77.6140529
+currentDatetime: 2016-12-19 18:45:34
+user_id:         4690
+city:            0
+
+
+POST http://muze.hummfm.com/MuzeHumm/feed/getFeedList
+                        
+Request Params
+                                                                          
+category_id:     24 (available from venue)
+venue_id:        54
+action_id:       1
+currentDatetime: 2016-12-19 18:45:48
+user_id:         4690
+
+
+//Music Feed
+GET http://muze.hummfm.com/MuzeHumm/feed/getFeedList
+
+category_id:     24
+venue_id:        54
+action_id:       1
+currentDatetime: 2016-12-19 18:45:48
+user_id:         4690
+

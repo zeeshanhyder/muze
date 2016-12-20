@@ -1,0 +1,50 @@
+<header class="header">
+  <div class="header--subheader-top flex layout-row">
+    <div class="subheader-top--logo-container">
+      <img class="logo-container--logo" src="app/assets/img/top_banner_logo.jpg" alt="HummFM" />
+    </div>
+    <div class="header--ad-unit-container flex flex-rem layout-column">
+      <ad-unit class="component"></ad-unit>
+    </div>
+  </div>
+  <div class="header--subheader-bottom" ng-if="$ctrl.currentState != 'location-selection'">
+    <div class="subheader-bottom--toolbar">
+        <div class="layout-row flex flex-rem">
+          <div class="toolbar--menu-button-container flex layout-align-start-center">
+            <button class="pad-box-10">
+              <i class="mdi mdi-menu"></i>
+            </button>
+          </div>
+          <div class="flex flex-rem"></div>
+        </div>
+        <div class="flex layout-column layout-align-center pad-r-20">
+          <music-player class="component" lite="true"></music-player>
+        </div>
+        <div class="flex layout-column toolbar--right-pane">
+          <div class="flex layout-column relative layout-align-end">
+            <div class="flex layout-row toolbar--search-input-container">
+              <i class="mdi mdi-magnify toolbar--search-input-icon"></i>
+              <input class="toolbar--search-input" type="text" placeholder="Search">
+            </div>
+          </div>
+          <div class="flex layout-row toolbar--social-media-container">
+            <a class="flex flex-rem">
+              <i class="mdi mdi-facebook"></i>
+            </a>
+            <a class="flex flex-rem">
+              <i class="mdi mdi-twitter"></i>
+            </a>
+            <a class="flex flex-rem">
+              <i class="mdi mdi-youtube-play"></i>
+            </a>
+            <a class="flex flex-rem">
+              <i class="mdi mdi-account"></i>
+            </a>
+            <a class="flex flex-rem" ui-sref="location-selection">
+              <i class="mdi mdi-map-marker"></i>
+            </a>
+          </div>
+        </div>
+    </div>
+  </div>
+</header>

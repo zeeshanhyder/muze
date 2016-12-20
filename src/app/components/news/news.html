@@ -1,0 +1,15 @@
+<div class="trending-now-container news-container">
+  <div class="component-header component-news-header">
+    <h4>News</h4>
+  </div>
+
+  <div class="component-content-container component-trending-now-container component-news-container">
+
+    <div class="news-card trending-now-card" ng-repeat="card in $ctrl.cards">
+      <img src="http://lorempixel.com/150/150/" alt="{{card.image}}"/>
+      <p>{{card.desc}}</p>
+    </div>
+
+  </div>
+
+</div>

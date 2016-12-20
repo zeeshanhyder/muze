@@ -1,0 +1,608 @@
+/*!
+ * Bootstrap Modal
+ *
+ * Copyright Jordan Schroter
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Boostrap 3 patch for for bootstrap-modal. Include BEFORE bootstrap-modal.css!
+ */
+
+body.modal-open,
+.modal-open .navbar-fixed-top,
+.modal-open .navbar-fixed-bottom {
+  margin-right: 0;
+}
+
+.modal {
+  left: 50%;
+  bottom: auto;
+  right: auto;
+  z-index: 1050;
+  padding: 0;
+  min-width: 500px;
+  margin-left: -25vw;
+  margin-top:25vh;
+  background-color: #ffffff;
+  border: 1px solid #999999;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+	position: fixed;
+  outline: none;
+}
+
+.modal.container {
+  max-width: none;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1040;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Global Declarations */
+
+.relative{
+	position: relative;
+}
+
+.icon-button{
+	cursor: pointer;
+	margin:0 3px;
+}
+
+
+.flex{
+	display: flex;
+}
+.flex-rem{
+	flex-grow:1;
+}
+.layout-column{
+	flex-direction:column;
+}
+.layout-row{
+	flex-direction: row;
+}
+.layout-center,.layout-align-center{
+	align-items:center;
+	justify-content: center;
+}
+.layout-fill{
+	min-height: 100%;
+	min-width: 100%;
+	height:100%;
+	width:100%;
+}
+.layout-wrap{
+	flex-wrap:wrap;
+}
+.flex-center{
+	justify-content: center;
+}
+.layout-align-start-center{
+	align-items:center;
+}
+.layout-align-end{
+	justify-content: flex-end;
+}
+.layout-align-space-between-center{
+	align-items:center;
+	align-content:space-between;
+	justify-content: space-between;
+}
+
+.pad-0{
+	padding: 0;
+}
+.pad-l-10{
+	padding-left:10px;
+}
+.pad-l-20{
+	padding-left:20px;
+}
+
+.pad-r-10{
+	padding-right: 10px;
+}
+.pad-r-20{
+	padding-right: 20px;
+}
+
+.pad-lr-10{
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.pad-lr-20{
+	padding-left: 20px;
+	padding-right: 20px;
+}
+.pad-box-10{
+	padding: 10px;
+}
+.pad-box-20{
+	padding:20px;
+}
+.margin-0{
+	margin:0;
+}
+.margin-l-10{
+	margin-left:10px;
+}
+.margin-lr-10{
+	margin-left:10px;
+	margin-right:10px;
+}
+.margin-lr-20{
+	margin-left:20px;
+	margin-right:20px;
+}
+.margin-r-10{
+	margin-right:10px;
+}
+.margin-r-20{
+	margin-right: 20px;
+}
+.margin-t-10{
+  margin-top: 10px;
+}
+.margin-t-20{
+  margin-top:20px;
+}
+
+.margin-d-10{
+	margin-bottom:10px;
+}
+.margin-d-20{
+	margin-bottom:20px;
+}
+.margin-td-10{
+	margin-top:10px;
+	margin-bottom:10px;
+}
+.margin-td-20{
+	margin-top:20px;
+	margin-bottom:20px;
+}
+.margin-box-10{
+	@extend .margin-td-10,.margin-lr-10;
+}
+.margin-box-20{
+	@extend .margin-td-20,.margin-lr-20;
+}
+
+.text-center{
+	text-align: center;
+}
+
+.fixed{
+	position: fixed;
+}
+
+.absolute{
+	position: absolute;
+}
+
+.relative{
+	position: relative;
+}
+
+button{
+	background: transparent;
+	border:none;
+	outline: none;
+	cursor: pointer;
+}
+
+.mdi{
+	&:before{
+			font-size: 24px;
+	}
+}
+
+p{
+	margin: 0;
+}
+
+a{
+	text-decoration: none;
+	color: inherit;
+}
+
+$default-theme-primary: #29A2D1;
+$default-theme-foreground-white: #FFF;
+$default-theme-background-grey: #F7F7F7;
+$default-theme-background-grey-1: #F0F0F0;
+$default-theme-background-grey-2: #D4D4D4;
+$default-theme-text-color: rgba(0,0,0,0.85);
+/* Global declarations end */
+
+
+/* Custom font */
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+html{
+  @extend .flex, .layout-column;
+
+}
+
+body {
+  background-color: $default-theme-background-grey;
+  margin:0;
+  padding: 0;
+  font-family:'Lato', Arial, sans-serif;
+	color: $default-theme-text-color;
+}
+
+
+/* Main App */
+
+.component{
+	@extend .flex, .layout-column;
+}
+
+app{
+	@extend .component;
+}
+
+.header{
+
+	.header--subheader-top{
+		height:70px;
+
+		.subheader-top--logo-container{
+			@extend .flex,.layout-column;
+			min-width:25%;
+			width:25%;
+			height:inherit;
+			max-height: inherit;
+
+			.logo-container--logo{
+					height: inherit;
+			}
+		}
+
+	}
+
+	.header--subheader-bottom{
+		@extend .margin-td-10;
+
+		.subheader-bottom--toolbar{
+			@extend .flex, .layout-row,.pad-lr-20;;
+			background-color: $default-theme-primary;
+			height:120px;
+
+
+			.toolbar--menu-button-container{
+					.mdi{
+						&:before{
+							font-size: 32px;
+							color: $default-theme-foreground-white;
+						}
+					}
+			}
+			div{
+				height: inherit;
+			}
+
+			.toolbar--right-pane{
+				min-width: 16%;
+				@extend .relative;
+				&:before{
+					content: '';
+					position: absolute;
+					top:15%;
+					bottom: 15%;
+					border-left: solid thin $default-theme-foreground-white;
+					width: 2px;
+					left:-10px;
+				}
+			}
+			.toolbar--search-input-container{
+				height: 25px;
+				width: 90%;
+				@extend .margin-td-10;
+			}
+
+			.toolbar--search-input-icon{
+				position: absolute;
+				color: $default-theme-primary;
+				left: 5px;
+				margin-top: 2px;
+			}
+
+			.toolbar--search-input{
+				border:none;
+				outline: none;
+				border-radius: 15px;
+				height:inherit;
+				width: inherit;
+				padding-left: 30px;
+			}
+
+			.toolbar--social-media-container{
+					color: $default-theme-foreground-white;
+					a{
+						@extend .icon-button;
+					}
+			}
+
+		}
+	}
+
+
+}
+
+.main-app-container{
+  @extend .flex, .layout-column;
+	.component{
+		@extend .margin-td-10;
+	}
+}
+
+.gallery-home-container{
+	flex-grow: 0;
+}
+
+.component{
+	.component-header{
+		color:$default-theme-foreground-white;
+		@extend .pad-box-10,.flex;
+		min-width: 100px;
+		max-width: 150px;
+		@extend .relative;
+		&:after{
+			content: '';
+			@extend .absolute;
+			top:0;
+			bottom:0;
+			border:solid 38px transparent;
+			right:-38px;
+		}
+		h4{
+			margin:0;
+		}
+	}
+
+	.component-shop-now-header, .component-news-header, .component-trending-now-header{
+		background: #E91E63;
+		&:after{
+			border-top-color: #E91E63;
+		}
+	}
+	.component-shows-header{
+		background: #2196F3;
+		&:after{
+			border-top-color: #2196F3;
+		}
+	}
+	.component-classifieds-header, .component-charts-header{
+		background: #009688;
+		&:after{
+			border-top-color: #009688;
+		}
+	}
+
+	.component-content-container{
+		background: $default-theme-background-grey-1;
+		@extend .margin-td-20, .pad-box-10;
+	}
+
+	.component-trending-now-container{
+		@extend .flex, .layout-row, .layout-wrap;
+		.trending-now-card{
+			@extend .flex, .layout-column,.margin-box-10,.pad-box-10;
+			min-height: 200px;
+			min-width: 200px;
+			max-width: 200px;
+			background: #d4d4d4;
+			img{
+				@extend .flex, .flex-rem;
+			}
+		}
+	}
+	.component-charts-container{
+		@extend .pad-box-20;
+		.charts-card{
+			background: #8BC34A;
+			padding: 40px;
+
+			.chart-table-item{
+				padding-bottom: 20px;
+				border-bottom: solid thin #000;
+			}
+
+		}
+	}
+
+	.component-shop-now-container{
+		@extend .layout-row, .flex;
+	}
+
+	.component-classifieds-container{
+		input{
+			border: none;
+			outline: none;
+			@extend .pad-box-10,.margin-td-10;
+			border-bottom: solid thin rgba(0,0,0,0.2);
+		}
+		input[type='password'],input[type='email']{
+			background: transparent;
+		}
+		a{
+			color: $default-theme-text-color;
+			text-decoration: none;
+			font-size: 12px;
+			&:hover{
+				text-decoration: underline;
+
+			}
+		}
+
+	}
+
+	.main-tabs-wrapper{
+		@extend .layout-column,.margin-box-10;
+		background-color: $default-theme-primary;
+	}
+	.main-tabs-container{
+		@extend .flex,.flex-rem,.pad-box-20,.margin-box-20,.layout-column;
+		background-color: $default-theme-background-grey;
+
+		.tabs-tab{
+			background-color: $default-theme-background-grey-2;
+			margin:5px;
+			@extend .pad-box-10,.flex,.flex-rem,.layout-align-center,.icon-button;
+		}
+		.active{
+			background-color: $default-theme-primary;
+			color:$default-theme-foreground-white;
+		}
+	}
+
+	.component-gallery-container{
+		background: transparent;
+	}
+
+}
+
+.app-footer{
+	@extend .flex, .layout-row;
+	background: $default-theme-primary;
+	color: $default-theme-foreground-white;
+
+	.app-store-button{
+		width: 214px;
+    height: 58px;
+    background-image: url(/app/assets/img/app-stores-sprite.png);
+    margin: 5px 0;
+    background-size: 80%;
+    background-repeat: no-repeat;
+		cursor: pointer;
+	}
+	.play-store{
+		background-position: 0 -62px;
+	}
+	.apple-store{
+		background-position: 0 -1px;
+	}
+}
+
+
+
+
+//Music Player
+.music-player{
+	.player-controls{
+		background: #388E3C;
+		border-radius: 50px;
+		width:50px;
+		text-align: center;
+		@extend .margin-r-10;
+		i{
+				color:$default-theme-foreground-white;
+				&:before{
+					font-size:42px;
+				}
+		}
+	}
+	.play-pause{
+		i{
+			&:before{
+				line-height: 50px;
+			}
+		}
+	}
+	.player-labels{
+		.song-info,.song-title{
+			margin-bottom:5px;
+		}
+	}
+	.song-info{
+		@extend .flex, .layout-row;
+	}
+}
+.lite{
+	color:$default-theme-foreground-white;
+}
+
+.carousel-container{
+	@extend .flex, .layout-row, .pad-box-10;
+	min-height: 320px;
+	height: 320px;
+	.current-image{
+		width: 500px;
+		height: 300px;
+		@extend .margin-r-20;
+		background-color: rgba(0,0,0,0.2);
+	}
+	.thumbnail{
+		background-color: rgba(0,0,0,0.2);
+		height: 90px;
+		width: 90px;
+	}
+	.thumbnail-2{
+		margin: 15px 0;
+	}
+
+}
+
+
+
+//******************* Location Dialog ********************/
+
+.location-selection-dialog{
+  background-color: $default-theme-background-grey;
+}
+
+
+.styled-select {
+   background: url(http://i62.tinypic.com/15xvbd5.png) no-repeat 96% 0;
+   height: 29px;
+   overflow: hidden;
+   width: 240px;
+}
+
+.styled-select select {
+   background: transparent;
+   border: none;
+   font-size: 14px;
+   height: 29px;
+   padding: 5px; /* If you add too much padding here, the options won't show in IE */
+   width: 268px;
+}
+
+.styled-select.slate {
+   background: url(http://i62.tinypic.com/2e3ybe1.jpg) no-repeat right center;
+   height: 34px;
+   width: 240px;
+}
+
+.styled-select.slate select {
+   border: 1px solid #ccc;
+   font-size: 16px;
+   height: 34px;
+   width: 268px;
+}
+
+.service-select{
+  .service-option{
+    background-color: $default-theme-background-grey-1;
+    width: 120px;
+    height:120px;
+    border-right: solid thin rgba(0,0,0,0.2);
+    border-bottom: solid thin rgba(0,0,0,0.05);
+    @extend .flex, .layout-column,.layout-align-center,.margin-0,.margin-t-20;
+    p{
+      @extend .margin-t-20;
+      font-size: 18px;
+      color: $default-theme-primary;
+    }
+  }
+}

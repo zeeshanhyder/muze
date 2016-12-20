@@ -1,0 +1,22 @@
+<div class="layout-row flex music-player lite">
+  <div ng-if="$ctrl.musicPlayer.playState" class="player-controls play-pause icon-button" ng-click="$ctrl.musicPlayer.pause()">
+    <i class="mdi play-button mdi-pause"></i>
+  </div>
+  <div ng-if="!$ctrl.musicPlayer.playState" class="player-controls play-pause icon-button" ng-click="$ctrl.musicPlayer.play()">
+    <i class="mdi play-button mdi-play"></i>
+  </div>
+  <div class="player-labels" ng-if="!$ctrl.musicPlayer.currentSong">
+    <div class="song-title">Unknown</div>
+    <div class="song-info">
+        <p class="margin-0 margin-r-10">Unknown Album,</p>
+        <p class="margin-0 margin-r-10">Unknown Artist</p>
+    </div>
+  </div>
+  <div class="player-labels" ng-if="$ctrl.musicPlayer.currentSong">
+    <div class="song-title">{{$ctrl.musicPlayer.currentSong.song_name}}</div>
+    <div class="song-info">
+        <p class="margin-0 margin-r-10">{{$ctrl.musicPlayer.currentSong.album_name}},</p>
+        <p class="margin-0 margin-r-10">{{$ctrl.musicPlayer.currentSong.artist_name}}</p>
+    </div>
+  </div>
+</div>

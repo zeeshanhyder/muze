@@ -1,0 +1,25 @@
+<div class="layout-row flex music-player" ng-if="$ctrl.musicPlayer.feedList.length == 0">
+  <div class="player-controls play-pause">
+    <i class="mdi play-button mdi-play"></i>
+  </div>
+  <div class="player-labels">
+    <div class="song-title">Unknown</div>
+    <div class="song-info">
+        <p class="margin-0 margin-r-10">Unknown Album,</p>
+        <p class="margin-0 margin-r-10">Unknown Artist</p>
+    </div>
+  </div>
+</div>
+
+<div class="layout-row flex music-player" style="margin-bottom: 5px;" ng-repeat="song in $ctrl.musicPlayer.feedList">
+  <div class="player-controls play-pause">
+    <i class="mdi play-button mdi-play"></i>
+  </div>
+  <div class="player-labels">
+    <div class="song-title">{{song.song_name}}</div>
+    <div class="song-info">
+        <p class="margin-0 margin-r-10">{{song.album_name}}</p>
+        <p class="margin-0 margin-r-10">{{song.artist_name}}</p>
+    </div>
+  </div>
+</div>
