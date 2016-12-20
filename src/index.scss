@@ -177,6 +177,14 @@ body.modal-open,
 	@extend .margin-td-20,.margin-lr-20;
 }
 
+.overflow-h{
+  overflow: hidden;
+}
+.overflow-y{
+  @extend .overflow-h;
+  overflow-y: auto;
+}
+
 .text-center{
 	text-align: center;
 }
@@ -455,6 +463,12 @@ app{
 		@extend .flex,.flex-rem,.pad-box-20,.margin-box-20,.layout-column;
 		background-color: $default-theme-background-grey;
 
+    .tabs-content-container{
+      height: 300px;
+      max-height: 300px;
+      @extend .overflow-y;
+    }
+
 		.tabs-tab{
 			background-color: $default-theme-background-grey-2;
 			margin:5px;
@@ -499,6 +513,7 @@ app{
 
 //Music Player
 .music-player{
+  min-height: 50px;
 	.player-controls{
 		background: #388E3C;
 		border-radius: 50px;
